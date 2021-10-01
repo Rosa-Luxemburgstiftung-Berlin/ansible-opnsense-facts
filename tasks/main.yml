@@ -1,0 +1,27 @@
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2 smartindent nu ft=yaml
+
+---
+
+- name: custom facts directory
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+
+- name: opnsense facts
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/ansible/facts.d/{{ item }}"
+    mode: 0755
+  with_items:
+    - opnsense.fact
+  register: opnf
+
+- name: reload ansible_local facts
+  setup:
+    filter: ansible_local
+  when: opnf.changed
+
+...

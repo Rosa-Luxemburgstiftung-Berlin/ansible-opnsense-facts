@@ -1,0 +1,13 @@
+#! /bin/sh
+
+echo "{"
+
+cd /usr/local/opnsense/version/
+
+for f in *; do
+head -1 $f | grep -q -e '^{' && echo "\"$f\": $(cat $f),"
+done
+
+echo "\"ansible_opnsense_facts_version\": \"0.1\""
+
+echo "}"
