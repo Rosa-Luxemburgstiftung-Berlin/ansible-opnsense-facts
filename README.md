@@ -58,3 +58,4 @@ will provide you with some local facts per package:
                 },
 ...
 ```
+So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release version.
