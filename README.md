@@ -3,7 +3,7 @@ gather ansible facts for opnsense
 
 will provide you with some local facts per package:
 
-```
+```json
 "ansible_local": {
             "opnsense": {
                 "ansible_opnsense_facts_version": "0.1",
