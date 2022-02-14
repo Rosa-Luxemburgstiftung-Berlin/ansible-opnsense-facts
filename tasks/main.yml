@@ -21,7 +21,7 @@
 
 - name: reload ansible_local facts
   setup:
-    filter: ansible_local
+    filter: ansible_local  # noqa no-handler
   when: opnf.changed
 
 ...
