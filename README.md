@@ -72,7 +72,7 @@ will provide you with some local facts per package and a firmware changelog list
                         "series": "15.1",
                         "version": "15.1.1"
                     },
-		    # ..
+		    # ...
 		    {
                         "date": "June 23, 2022",
                         "series": "22.1",
