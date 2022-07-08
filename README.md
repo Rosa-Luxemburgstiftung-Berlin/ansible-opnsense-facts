@@ -5,7 +5,7 @@
 # ansible-opnsense-facts
 gather ansible facts for opnsense
 
-will provide you with some local facts per package:
+will provide you with some local facts per package and a firmware changelog list:
 
 ```json
 "ansible_local": {
@@ -60,6 +60,30 @@ will provide you with some local facts per package:
                     "product_version": "1.1_1",
                     "product_website": "https://opnsense.org/"
                 },
+		# ...
+		"firmware_changelog": [
+                    {
+                        "date": "January 02, 2015",
+                        "series": "15.1",
+                        "version": "15.1"
+                    },
+                    {
+                        "date": "January 12, 2015",
+                        "series": "15.1",
+                        "version": "15.1.1"
+                    },
+		    # ..
+		    {
+                        "date": "June 23, 2022",
+                        "series": "22.1",
+                        "version": "22.1.9"
+                    },
+                    {
+                        "date": "July 07, 2022",
+                        "series": "22.1",
+                        "version": "22.1.10"
+                    }
+                ],
 ...
 ```
 So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release version.
