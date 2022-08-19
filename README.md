@@ -86,4 +86,5 @@ will provide you with some local facts per package and a firmware changelog list
                 ],
 ...
 ```
-So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release version.
+So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release.
+In order to get the full version without the revision, use `ansible_local.opnsense.core.product_version.split('_')[0].strip()`
