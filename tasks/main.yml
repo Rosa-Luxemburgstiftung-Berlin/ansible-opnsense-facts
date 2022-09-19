@@ -3,7 +3,7 @@
 ---
 
 - name: custom facts directory
-  file:
+  ansible.builtin.file:
     path: /etc/ansible/facts.d
     state: directory
     mode: 0755
@@ -11,7 +11,7 @@
     group: wheel
 
 - name: opnsense facts
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/etc/ansible/facts.d/{{ item }}"
     mode: 0755
@@ -20,7 +20,7 @@
   register: opnf
 
 - name: reload ansible_local facts
-  setup:
+  ansible.builtin.setup:
     filter: ansible_local  # noqa no-handler
   when: opnf.changed
 
