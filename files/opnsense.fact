@@ -18,12 +18,12 @@ if [ -x /usr/local/opnsense/scripts/firmware/changelog.sh ]; then
 	echo ","
 fi
 
-echo "\"ansible_opnsense_facts_version\": \"0.2\","
-
 if [ -e /tmp/pkg_upgrade.json ]; then
   echo "\"pkg_upgrade\": ["
   cat /tmp/pkg_upgrade.json
-  echo "]"
+  echo "],"
 fi
+
+echo "\"ansible_opnsense_facts_version\": \"0.2\""
 
 echo "}"
