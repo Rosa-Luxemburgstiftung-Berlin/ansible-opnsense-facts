@@ -1,5 +1,9 @@
 #! /bin/sh
 
+if [ -z "$(find /tmp/pkg_upgrade.json -cmin -5)" ]; then
+  /usr/local/opnsense/scripts/firmware/check.sh > /dev/null
+fi
+
 echo "{"
 
 cd /usr/local/opnsense/version/
@@ -14,7 +18,12 @@ if [ -x /usr/local/opnsense/scripts/firmware/changelog.sh ]; then
 	echo ","
 fi
 
+if [ -e /tmp/pkg_upgrade.json ]; then
+  echo "\"pkg_upgrade\": ["
+  cat /tmp/pkg_upgrade.json
+  echo "],"
+fi
 
-echo "\"ansible_opnsense_facts_version\": \"0.1\""
+echo "\"ansible_opnsense_facts_version\": \"0.2\""
 
 echo "}"
