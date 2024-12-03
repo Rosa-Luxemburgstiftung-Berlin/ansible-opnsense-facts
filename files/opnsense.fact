@@ -1,7 +1,11 @@
 #! /bin/sh
 
-if [ -z "$(find /tmp/pkg_upgrade.json -cmin -5)" ]; then
-  /usr/local/opnsense/scripts/firmware/check.sh > /dev/null
+if [ -e /tmp/pkg_upgrade.json ]; then
+	if [ -z "$(find /tmp/pkg_upgrade.json -cmin -5)" ]; then
+		/usr/local/opnsense/scripts/firmware/check.sh > /dev/null
+	fi
+else
+	/usr/local/opnsense/scripts/firmware/check.sh > /dev/null
 fi
 
 echo "{"
