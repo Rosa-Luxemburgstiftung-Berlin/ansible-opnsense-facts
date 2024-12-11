@@ -88,3 +88,57 @@ will provide you with some local facts per package and a firmware changelog list
 ```
 So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release.
 In order to get the full version without the revision, use `ansible_local.opnsense.core.product_version.split('_')[0].strip()`
+
+Another interesting part of the facts ist the `pkg_upgrade`part. See realted issues and PRs:
+  * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-facts#3
+  * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-update#6
+  * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-update#17
+
+```json
+"pkg_upgrade": [
+    {
+      "api_version": "2",
+      "connection": "ok",
+      "downgrade_packages": [],
+      "download_size": "",
+      "last_check": "Wed Dec 11 08:59:54 UTC 2024",
+      "needs_reboot": "0",
+      "new_packages": [],
+      "os_version": "FreeBSD 13.2-RELEASE-p7",
+      "product_id": "opnsense",
+      "product_target": "opnsense",
+      "product_version": "23.7.12_5",
+      "product_abi": "23.7",
+      "reinstall_packages": [],
+      "remove_packages": [],
+      "repository": "ok",
+      "upgrade_major_message": "<p>OPNsense 23.7 \"<em>Restless Roadrunner</em>\" has reached its end of life. As such it will not receive any more updates, but the upgrade to the new 24.1 series is seamless and can be performed right here from the web GUI.</p> <p> Another method is to import and reinstall using a new installation image, which will retain your settings using \"Import Configuration\", then reformat the disk and apply a clean system using either \"Install (UFS)\" or \"Install (ZFS)\".</p> <p>You can also upgrade via console / SSH by using option 12 from the menu by typing \"24.1\" when prompted.</p> <p>Make sure to read the migration notes and account for possible breaking changes.</p> <p>Please backup your configuration, preview the new version via live image or in a virtual machine. Create snapshots. If all else fails, report back <a href=\"https://forum.opnsense.org/\" target=\"_blank\">in the forums</a> for assistance.</p> ",
+      "upgrade_major_version": "24.1",
+      "upgrade_needs_reboot": "1",
+      "upgrade_packages": [],
+      "upgrade_sets": [
+        {
+          "name": "packages",
+          "size": "754585088",
+          "current_version": "",
+          "new_version": "24.1",
+          "repository": "OPNsense"
+        },
+        {
+          "name": "kernel",
+          "size": "32841852",
+          "current_version": "23.7.10",
+          "new_version": "24.1",
+          "repository": "OPNsense"
+        },
+        {
+          "name": "base",
+          "size": "116680004",
+          "current_version": "23.7.10",
+          "new_version": "24.1",
+          "repository": "OPNsense"
+        }
+      ]
+    }
+]
+```
