@@ -28,6 +28,18 @@ if [ -e /tmp/pkg_upgrade.json ]; then
   echo "],"
 fi
 
-echo "\"ansible_opnsense_facts_version\": \"0.2\""
+if [ -x /usr/local/opnsense/scripts/system/bectl.py ]; then
+	echo "\"zfs_snapshot\": {"
+	echo "\"supported\":"
+	configctl zfs snapshot supported
+	if $(bectl check > /dev/null 2>&1); then
+		echo ","
+		echo "\"list\":"
+		configctl zfs snapshot list
+	fi
+	echo "},"
+fi
+
+echo "\"ansible_opnsense_facts_version\": \"0.3\""
 
 echo "}"
