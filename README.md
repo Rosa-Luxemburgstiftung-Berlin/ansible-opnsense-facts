@@ -89,7 +89,7 @@ will provide you with some local facts per package and a firmware changelog list
 So for example you can use `ansible_local.opnsense.core.product_series` to detect the opnsense release.
 In order to get the full version without the revision, use `ansible_local.opnsense.core.product_version.split('_')[0].strip()`
 
-Another interesting part of the facts ist the `pkg_upgrade`part. See realted issues and PRs:
+Another interesting part of the facts is the `pkg_upgrade`part. See realted issues and PRs:
   * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-facts#3
   * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-update#6
   * Rosa-Luxemburgstiftung-Berlin/ansible-opnsense-update#17
