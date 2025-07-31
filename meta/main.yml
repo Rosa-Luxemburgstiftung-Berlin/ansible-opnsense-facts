@@ -2,11 +2,13 @@
 dependencies: []
 
 galaxy_info:
-  author: rudi.broekhuizen
-  description: Ansible role for OPNSense deployment on appliances
-  company: Naturalis Biodiversity Center
-  license: Apache2
-  min_ansible_version: 2.13.0
+  author: zerwes, crpb
+  description: Ansible role for deploying ansible facts on OPNSense appliances
+  company: Rosa-Luxemburg-Stiftung Gesellschaftsanalyse und politische Bildung e. V.
+
+
+  license: GPL 3.0
+  min_ansible_version: 2.9.0
   platforms:
     - name: FreeBSD
       versions:
