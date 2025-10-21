@@ -17,9 +17,12 @@ for f in *; do
 done
 
 if [ -x /usr/local/opnsense/scripts/firmware/changelog.sh ]; then
-	echo "\"firmware_changelog\":"
-	/usr/local/opnsense/scripts/firmware/changelog.sh list
-	echo ","
+    /usr/local/opnsense/scripts/firmware/changelog.sh list > /tmp/changelog.list
+    if [ -s /tmp/changelog.list ]; then
+        echo "\"firmware_changelog\":"
+        cat /tmp/changelog.list
+        echo ","
+    fi
 fi
 
 if [ -e /tmp/pkg_upgrade.json ]; then
